@@ -31,3 +31,28 @@ $('#togglePowerSaving').click(function(){
     $('#power-saving-status').html('off');
   }
 });
+
+// $('#getCity').submit(event) {
+//   event.preventDefault();
+//   var city = $('#city').val();
+//   $.ajax(){
+//     url:'http://api.wunderground.com/api/a39ff0765d037ae8/conditions/q/uk/'+ city +'.json',
+//     success: function(data){
+//       $('#city-temp').text(data.responseJSON.current_observation.temperature_string);
+//     };
+//   };
+// };
+
+var weather = $.get('http://api.wunderground.com/api/a39ff0765d037ae8/conditions/q/uk/london.json');
+
+$('#city-temp').text(weather.responseJSON.current_observation.temperature_string);
+
+
+// $('#getCity').submit(function(event) {
+//   event.preventDefault();
+//   var city = $('#current-city').val();
+//   $.get('http://api.wunderground.com/api/a39ff0765d037ae8/conditions/q/uk/'+ 'london' +'.json',function(data){
+//     $('#city-temp').text(data.responseJSON.current_observation.temperature_string);
+//   })
+//   $('#city-temp').text(city)
+// });
